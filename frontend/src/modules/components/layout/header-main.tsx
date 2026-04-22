@@ -1,0 +1,55 @@
+import DarkMode from "@/components/shared/dark-mode";
+import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
+import SignOutButton from "../auth/sign-out-button";
+import AppLogo from "@/components/shared/app-logo";
+import LoginButton from "@/modules/components/auth/login-button";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Gauge, ShoppingCart } from "lucide-react";
+import Link from "next/link";
+import { routes } from "@/config/routes";
+
+const HeaderMain = async () => {
+  const session = await auth.api.getSession({ headers: await headers() });
+
+  return (
+    <header className="bg-background fixed top-0 right-0 z-50 h-auto w-full border-b px-2 py-2">
+      <div className="mx-auto flex w-full items-center justify-between gap-1 sm:gap-2">
+        {/* // MENU & LOGO  & NAV LINKS */}
+        <AppLogo />
+        {/* // AUTH & BUTTONS */}
+        <div className="flex shrink-0 items-center gap-2 p-1">
+          {session && (
+            <div>
+              <span className="text-muted-foreground text-xs">Signed as: </span>
+              <Badge variant="default">{session?.user?.name}</Badge>
+            </div>
+          )}
+
+          <Button size="sm" variant="outline">
+            <Link
+              href={routes.dashboard}
+              className="flex items-center justify-center gap-2"
+            >
+              <Gauge />
+              <span>Dashboard</span>
+            </Link>
+          </Button>
+          <Button
+            size="sm"
+            variant="outline"
+            className="flex items-center justify-center gap-2"
+          >
+            <ShoppingCart />
+            <span>Cart</span>
+          </Button>
+          {!session ? <LoginButton /> : <SignOutButton />}
+          <DarkMode />
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default HeaderMain;
