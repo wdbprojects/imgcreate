@@ -1,3 +1,4 @@
+import { auth } from "@/lib/auth";
 import { ReactNode } from "react";
 
 export type LayoutPropsMain = {
@@ -19,3 +20,6 @@ export interface IProdutsData {
   isFeatured: boolean;
   banner?: string | null;
 }
+
+/* AUTH */
+export type Session = typeof auth.$Infer.Session;

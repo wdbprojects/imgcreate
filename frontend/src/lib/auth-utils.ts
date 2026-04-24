@@ -1,19 +1,19 @@
-/* import { routes } from "@/config/routes";
+import { routes } from "@/config/routes";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
-import { redirect } from "next/navigation"; */
+import { redirect } from "next/navigation";
 
-/* export const requireAuth = async (role: string) => {
+export const requireAuth = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
-  if (!session || session.user.role !== role) {
+  if (!session) {
     redirect(routes.login);
   }
   return session;
-}; */
+};
 
-/* export const requireUnauth = async (path: keyof typeof routes) => {
+export const requireUnauth = async (path: keyof typeof routes) => {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
@@ -21,4 +21,4 @@ import { redirect } from "next/navigation"; */
     redirect(routes[path]);
   }
   return session;
-}; */
+};

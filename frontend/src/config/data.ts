@@ -2,6 +2,7 @@ import { routes } from "@/config/routes";
 import {
   Bot,
   Gauge,
+  Images,
   ImageUp,
   LifeBuoy,
   Settings2,
@@ -24,33 +25,39 @@ export const sidebarData = {
         },
         {
           id: 2,
-          title: "Customer Portal",
-          url: routes.portal,
-          icon: UserRound,
+          title: "Create Image",
+          url: routes.createImage,
+          icon: Images,
         },
-        { id: 3, title: "Optimizing", url: "#", icon: ImageUp },
+        {
+          id: 3,
+          title: "Optimizing",
+          url: routes.optimizeImage,
+          icon: ImageUp,
+        },
+        { id: 4, title: "Settings", url: routes.settings, icon: Settings2 },
       ],
     },
-    {
-      id: 2,
-      title: "Getting Continued",
-      url: "#",
-      items: [
-        { id: 1, title: "Data Fetching", url: "#", icon: LifeBuoy },
-        { id: 2, title: "Rendering", url: "#", icon: Settings2 },
-        { id: 3, title: "Optimizing", url: "#", icon: ImageUp },
-      ],
-    },
-    {
-      id: 3,
-      title: "Getting Finished",
-      url: "#",
-      items: [
-        { id: 1, title: "Data Fetching", url: "#", icon: SquareTerminal },
-        { id: 2, title: "Rendering", url: "#", icon: Settings2 },
-        { id: 3, title: "Optimizing", url: "#", icon: Bot },
-      ],
-    },
+    // {
+    //   id: 2,
+    //   title: "Getting Continued",
+    //   url: "#",
+    //   items: [
+    //     { id: 1, title: "Data Fetching", url: "#", icon: LifeBuoy },
+    //     { id: 2, title: "Rendering", url: "#", icon: Settings2 },
+    //     { id: 3, title: "Optimizing", url: "#", icon: ImageUp },
+    //   ],
+    // },
+    // {
+    //   id: 3,
+    //   title: "Getting Finished",
+    //   url: "#",
+    //   items: [
+    //     { id: 1, title: "Data Fetching", url: "#", icon: SquareTerminal },
+    //     { id: 2, title: "Rendering", url: "#", icon: Settings2 },
+    //     { id: 3, title: "Optimizing", url: "#", icon: Bot },
+    //   ],
+    // },
   ],
   user: {
     name: "Scarlett Johansson",
