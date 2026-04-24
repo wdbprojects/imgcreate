@@ -7,6 +7,7 @@ import { Polar } from "@polar-sh/sdk";
 import { polar, checkout, portal, webhooks } from "@polar-sh/better-auth";
 import { routes } from "@/config/routes";
 import { revalidatePath } from "next/cache";
+import { env } from "@/lib/env";
 
 const adapter = new PrismaPg({
   connectionString: process.env.DATABASE_URL,
@@ -16,10 +17,10 @@ const prisma = new PrismaClient({
   adapter: adapter,
 });
 
-const polarClient = new Polar({
+/* const polarClient = new Polar({
   accessToken: process.env.POLAR_ACCESS_TOKEN,
   server: "sandbox",
-});
+}); */
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
