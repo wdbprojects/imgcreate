@@ -1,14 +1,5 @@
 import { routes } from "@/config/routes";
-import {
-  Bot,
-  Gauge,
-  Images,
-  ImageUp,
-  LifeBuoy,
-  Settings2,
-  SquareTerminal,
-  UserRound,
-} from "lucide-react";
+import { Gauge, Images, ImageUp, Settings2 } from "lucide-react";
 
 export const sidebarData = {
   navMain: [
@@ -31,8 +22,8 @@ export const sidebarData = {
         },
         {
           id: 3,
-          title: "Optimizing",
-          url: routes.optimizeImage,
+          title: "Projects",
+          url: routes.projects,
           icon: ImageUp,
         },
         { id: 4, title: "Settings", url: routes.settings, icon: Settings2 },

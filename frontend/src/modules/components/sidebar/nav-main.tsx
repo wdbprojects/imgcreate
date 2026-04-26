@@ -11,10 +11,18 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar";
 
 const NavMain = () => {
   const currentPathname = usePathname();
+  const { setOpenMobile, isMobile } = useSidebar();
+
+  const handleMenuClick = () => {
+    if (isMobile) {
+      setOpenMobile(false);
+    }
+  };
 
   return (
     <SidebarMenu>
@@ -36,6 +44,7 @@ const NavMain = () => {
                         <Link
                           href={link.url}
                           className="flex h-8 w-full items-center justify-start"
+                          onClick={handleMenuClick}
                         >
                           <div className="flex items-center justify-start gap-2">
                             {link.icon && <link.icon />}

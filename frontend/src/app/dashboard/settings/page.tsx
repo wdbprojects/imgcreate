@@ -1,7 +1,7 @@
-import DashboardSettingsPage from "@/modules/presentation/dashboard/dashboard-settings-page";
+import SettingsPage from "@/modules/presentation/dashboard/settings-page";
 
-const DashboardSettingsPageMain = () => {
-  return <DashboardSettingsPage />;
+const SettingsPageMain = () => {
+  return <SettingsPage />;
 };
 
-export default DashboardSettingsPageMain;
+export default SettingsPageMain;

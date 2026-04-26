@@ -16,18 +16,27 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { routes } from "@/config/routes";
 // import { sidebarData } from "@/config/data";
 import { authClient } from "@/lib/auth-client";
-import { BadgeCheck, Bell, CreditCard, LogOut } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Images, ImageUp, LogOut, Settings2 } from "lucide-react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const NavUser = () => {
   // const { user } = sidebarData;
   const { isMobile, setOpenMobile } = useSidebar();
-  const pathname = usePathname();
+  const currentPathname = usePathname();
 
   const { data } = authClient.useSession();
   const user = data?.user;
+
+  const handleMenuClick = () => {
+    if (isMobile) {
+      setOpenMobile(false);
+    }
+  };
 
   return (
     <SidebarMenu>
@@ -66,9 +75,9 @@ const NavUser = () => {
             >
               <DropdownMenuLabel className="p-0 font-normal">
                 <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                  <Avatar className="h-8 w-8 rounded-lg">
+                  <Avatar className="h-8 w-8 rounded-full">
                     <AvatarImage src={""} alt={user?.name} />
-                    <AvatarFallback className="rounded-lg">SJ</AvatarFallback>
+                    <AvatarFallback className="rounded-full">SJ</AvatarFallback>
                   </Avatar>
                   <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-medium">{user?.name}</span>
@@ -78,18 +87,54 @@ const NavUser = () => {
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuGroup>
-                <DropdownMenuItem className="cursor-pointer">
-                  <BadgeCheck />
-                  Account
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
-                  <CreditCard />
-                  Billing
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
-                  <Bell />
-                  Notifications
-                </DropdownMenuItem>
+                <DropdownMenuItem
+                  className="cursor-pointer"
+                  render={
+                    <Link
+                      href={routes.createImage}
+                      onClick={handleMenuClick}
+                      className={cn(
+                        "flex items-center gap-2",
+                        currentPathname === routes.createImage && "bg-muted",
+                      )}
+                    >
+                      <Images />
+                      <span>Create Image</span>
+                    </Link>
+                  }
+                ></DropdownMenuItem>
+                <DropdownMenuItem
+                  className="cursor-pointer"
+                  render={
+                    <Link
+                      href={routes.projects}
+                      onClick={handleMenuClick}
+                      className={cn(
+                        "flex items-center gap-2",
+                        currentPathname === routes.projects && "bg-muted",
+                      )}
+                    >
+                      <ImageUp />
+                      <span>Projects</span>
+                    </Link>
+                  }
+                ></DropdownMenuItem>
+                <DropdownMenuItem
+                  className="cursor-pointer"
+                  render={
+                    <Link
+                      href={routes.settings}
+                      onClick={handleMenuClick}
+                      className={cn(
+                        "flex items-center gap-2",
+                        currentPathname === routes.settings && "bg-muted",
+                      )}
+                    >
+                      <Settings2 />
+                      <span>Settings</span>
+                    </Link>
+                  }
+                ></DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
               <DropdownMenuItem className="cursor-pointer">

@@ -5,6 +5,7 @@ import SignOutButton from "../auth/sign-out-button";
 import AppLogo from "@/components/shared/app-logo";
 import LoginButton from "../auth/login-button";
 import { Badge } from "@/components/ui/badge";
+import BreadcrumbComp from "../misc/breadcrumb-comp";
 
 const HeaderDashboard = async () => {
   const session = await auth.api.getSession({ headers: await headers() });
@@ -14,10 +15,14 @@ const HeaderDashboard = async () => {
       <div className="mx-auto flex w-full items-center justify-between gap-1 sm:gap-2">
         {/* // MENU & LOGO  & NAV LINKS */}
         <AppLogo />
+        {/* // BREADCRUMBS */}
+        <div className="hidden flex-1 px-3 lg:flex">
+          <BreadcrumbComp />
+        </div>
         {/* // AUTH & BUTTONS */}
         <div className="flex shrink-0 items-center gap-4 p-1">
           {session && (
-            <div>
+            <div className="hidden sm:block">
               <span className="text-muted-foreground text-xs">Signed as: </span>
               <Badge variant="default">{session?.user?.name}</Badge>
             </div>

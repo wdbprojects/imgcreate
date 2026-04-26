@@ -6,7 +6,7 @@ const DashboardSidebar = () => {
   return (
     <Sidebar
       className="z-40 rounded-sm border-none pt-15"
-      variant="floating"
+      variant="inset"
       collapsible="icon"
     >
       <MobileSidebarClose />
