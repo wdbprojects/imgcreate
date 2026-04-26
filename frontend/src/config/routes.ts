@@ -6,9 +6,8 @@ export const routes = {
   /* DASHBOARD */
   dashboard: "/dashboard",
   createImage: "/dashboard/create-image",
-  optimizeImage: "/dashboard/optimize-image",
+  projects: "/dashboard/projects",
   settings: "/dashboard/settings",
-  portal: "/dashboard/customer-portal",
 
   /* AUTH */
   login: "/auth/login",

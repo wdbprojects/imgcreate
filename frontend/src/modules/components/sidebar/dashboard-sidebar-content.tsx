@@ -3,6 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import {
   SidebarContent,
   SidebarFooter,
+  SidebarInset,
   SidebarRail,
 } from "@/components/ui/sidebar";
 import NavMain from "@/modules/components/sidebar/nav-main";
@@ -14,7 +15,7 @@ const DashboardSidebarContent = async () => {
   const credits = result?.success ? result.credits : 0;
 
   return (
-    <>
+    <SidebarInset className="rounded-md">
       {/* <SidebarHeader>Sidebar Header</SidebarHeader> */}
       <SidebarContent>
         <NavMain />
@@ -25,7 +26,7 @@ const DashboardSidebarContent = async () => {
         <NavUser />
       </SidebarFooter>
       <SidebarRail />
-    </>
+    </SidebarInset>
   );
 };
 

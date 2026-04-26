@@ -3,7 +3,7 @@ import { requireAuth } from "@/lib/auth-utils";
 import UserSettingsForm from "@/modules/components/dashboard/user-settings-form";
 import { headers } from "next/headers";
 
-const DashboardSettingsPage = async () => {
+const SettingsPage = async () => {
   await requireAuth();
   const session = await auth.api.getSession({ headers: await headers() });
 
@@ -25,4 +25,4 @@ const DashboardSettingsPage = async () => {
   );
 };
 
-export default DashboardSettingsPage;
+export default SettingsPage;

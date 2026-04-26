@@ -9,8 +9,9 @@ const figtree = Figtree({
 });
 
 export const metadata: Metadata = {
-  title: "Image Create",
-  description: "Complete image generation app with AI",
+  title: "AI Image Generator Studio",
+  description: "AI Image Generator - Turn text prompts into images",
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
 export default function RootLayout({

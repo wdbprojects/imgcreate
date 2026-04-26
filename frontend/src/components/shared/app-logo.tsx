@@ -10,7 +10,7 @@ const AppLogo = () => {
   const isDashboard = pathname.includes("/dashboard");
 
   return (
-    <div className="flex flex-1 shrink-0 items-center gap-2 p-1">
+    <div className="gap-2p-1 flex min-w-60 flex-0 shrink-0 items-center">
       {isDashboard && <SidebarTriggerCustom />}
       <Link href={routes.home} className="flex flex-row items-center gap-0">
         <h6 className="text-primary text-xl font-bold tracking-tight">Image</h6>
