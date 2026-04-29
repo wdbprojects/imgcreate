@@ -14,6 +14,7 @@ export const sidebarData = {
           url: routes.dashboard,
           icon: Gauge,
         },
+
         {
           id: 2,
           title: "Create Image",
