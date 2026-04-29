@@ -10,7 +10,7 @@ const DashboardLayout = async ({ children }: LayoutPropsMain) => {
   // const session = await auth.api.getSession({headers: await headers()})
 
   return (
-    <SidebarProvider defaultOpen={defaultOpen}>
+    <SidebarProvider defaultOpen={true}>
       <HeaderDashboard />
       <div className="flex w-full overflow-y-auto">
         <DashboardSidebar />

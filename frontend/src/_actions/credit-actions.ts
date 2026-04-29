@@ -16,8 +16,9 @@ export const getUserCreditsAction = cache(async () => {
       select: { credits: true },
     });
     if (!user) {
-      return { success: false, credits: 0 };
+      return { success: false, credits: 0, error: "User not found" };
     }
+
     return { success: true, credits: user.credits };
   } catch (error) {
     console.log("Error fetching user credits", error);

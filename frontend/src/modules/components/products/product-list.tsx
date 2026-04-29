@@ -38,6 +38,7 @@ const ProductList = ({
                     height={100}
                     src={product.images[0]}
                     alt={product.name}
+                    loading="eager"
                   />
                 </div>
               </div>

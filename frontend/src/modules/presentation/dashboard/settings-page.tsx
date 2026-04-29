@@ -4,7 +4,7 @@ import UserSettingsForm from "@/modules/components/dashboard/user-settings-form"
 import { headers } from "next/headers";
 
 const SettingsPage = async () => {
-  await requireAuth();
+  // await requireAuth();
   const session = await auth.api.getSession({ headers: await headers() });
 
   return (
