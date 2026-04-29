@@ -20,7 +20,7 @@ import { routes } from "@/config/routes";
 // import { sidebarData } from "@/config/data";
 import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
-import { Images, ImageUp, Settings2 } from "lucide-react";
+import { Images, ImageUp, Settings2, SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SignOutButton from "@/modules/components/auth/sign-out-button";
@@ -92,6 +92,23 @@ const NavUser = () => {
                   className="cursor-pointer"
                   render={
                     <Link
+                      href={routes.customerPortal}
+                      onClick={handleMenuClick}
+                      target="_blank"
+                      className={cn(
+                        "flex items-center gap-2",
+                        currentPathname === routes.createImage && "bg-muted",
+                      )}
+                    >
+                      <SlidersHorizontal />
+                      <span>Customer Portal</span>
+                    </Link>
+                  }
+                />
+                <DropdownMenuItem
+                  className="cursor-pointer"
+                  render={
+                    <Link
                       href={routes.createImage}
                       onClick={handleMenuClick}
                       className={cn(
@@ -103,7 +120,7 @@ const NavUser = () => {
                       <span>Create Image</span>
                     </Link>
                   }
-                ></DropdownMenuItem>
+                />
                 <DropdownMenuItem
                   className="cursor-pointer"
                   render={
@@ -119,7 +136,7 @@ const NavUser = () => {
                       <span>Projects</span>
                     </Link>
                   }
-                ></DropdownMenuItem>
+                />
                 <DropdownMenuItem
                   className="cursor-pointer"
                   render={
@@ -135,10 +152,9 @@ const NavUser = () => {
                       <span>Settings</span>
                     </Link>
                   }
-                ></DropdownMenuItem>
+                />
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
-
               <SignOutButton className="w-full" />
             </DropdownMenuContent>
           </DropdownMenuGroup>

@@ -12,4 +12,7 @@ export const routes = {
   /* AUTH */
   login: "/auth/login",
   register: "/auth/register",
+
+  /* POLAR */
+  customerPortal: "/dashboard/customer-portal",
 };
