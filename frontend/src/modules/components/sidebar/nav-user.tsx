@@ -20,9 +20,10 @@ import { routes } from "@/config/routes";
 // import { sidebarData } from "@/config/data";
 import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
-import { Images, ImageUp, LogOut, Settings2 } from "lucide-react";
+import { Images, ImageUp, Settings2 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import SignOutButton from "@/modules/components/auth/sign-out-button";
 
 const NavUser = () => {
   // const { user } = sidebarData;
@@ -137,10 +138,8 @@ const NavUser = () => {
                 ></DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
-              <DropdownMenuItem className="cursor-pointer">
-                <LogOut />
-                Log out
-              </DropdownMenuItem>
+
+              <SignOutButton className="w-full" />
             </DropdownMenuContent>
           </DropdownMenuGroup>
         </DropdownMenu>

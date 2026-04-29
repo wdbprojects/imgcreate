@@ -8,14 +8,14 @@ import { cn } from "@/lib/utils";
 import { Crown, Sparkles } from "lucide-react";
 
 const UpgradeButton = () => {
-  const session = useSession();
+  // const session = useSession();
 
   const upgrade = async () => {
     await authClient.checkout({
       products: [
-        "bc06566e-b6fc-4461-bbe9-239fad4a50a6",
-        "fb7f661c-88fd-4068-8e61-8e104d7ba2b0",
-        "be55407f-d0eb-470c-b50f-8fe86aa4f855",
+        "a8fd5580-e9b7-486a-8a56-48f16388ef68",
+        "ae583fc5-7c7a-4215-90fe-a16326684357",
+        "eae9648f-1cb7-420c-96aa-83fa7c712274",
       ],
     });
   };

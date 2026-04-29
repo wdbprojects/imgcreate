@@ -5,7 +5,7 @@ import SignOutButton from "../auth/sign-out-button";
 import AppLogo from "@/components/shared/app-logo";
 import LoginButton from "../auth/login-button";
 import { Badge } from "@/components/ui/badge";
-import BreadcrumbComp from "../misc/breadcrumb-comp";
+import BreadcrumbComp from "@/modules/components/misc/breadcrumb-comp";
 
 const HeaderDashboard = async () => {
   const session = await auth.api.getSession({ headers: await headers() });

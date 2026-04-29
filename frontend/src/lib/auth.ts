@@ -1,5 +1,3 @@
-import { PrismaClient } from "@/generated/prisma/client";
-import { PrismaPg } from "@prisma/adapter-pg";
 import { betterAuth } from "better-auth";
 import { nextCookies } from "better-auth/next-js";
 import { prismaAdapter } from "better-auth/adapters/prisma";
@@ -7,20 +5,20 @@ import { Polar } from "@polar-sh/sdk";
 import { polar, checkout, portal, webhooks } from "@polar-sh/better-auth";
 import { routes } from "@/config/routes";
 import { revalidatePath } from "next/cache";
-import { env } from "@/lib/env";
+import prisma from "@/lib/prisma";
 
-const adapter = new PrismaPg({
-  connectionString: process.env.DATABASE_URL,
-});
+// const adapter = new PrismaPg({
+//   connectionString: process.env.DATABASE_URL,
+// });
 
-const prisma = new PrismaClient({
-  adapter: adapter,
-});
+// const prisma = new PrismaClient({
+//   adapter: adapter,
+// });
 
-/* const polarClient = new Polar({
+const polarClient = new Polar({
   accessToken: process.env.POLAR_ACCESS_TOKEN,
   server: "sandbox",
-}); */
+});
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
@@ -35,22 +33,22 @@ export const auth = betterAuth({
   },
   plugins: [
     nextCookies(),
-    /* polar({
+    polar({
       client: polarClient,
       createCustomerOnSignUp: true,
       use: [
         checkout({
           products: [
             {
-              productId: "bc06566e-b6fc-4461-bbe9-239fad4a50a6",
+              productId: "a8fd5580-e9b7-486a-8a56-48f16388ef68",
               slug: "small",
             },
             {
-              productId: "fb7f661c-88fd-4068-8e61-8e104d7ba2b0",
+              productId: "ae583fc5-7c7a-4215-90fe-a16326684357",
               slug: "medium",
             },
             {
-              productId: "be55407f-d0eb-470c-b50f-8fe86aa4f855",
+              productId: "eae9648f-1cb7-420c-96aa-83fa7c712274",
               slug: "large",
             },
           ],
@@ -68,20 +66,17 @@ export const auth = betterAuth({
               throw new Error("No external customer ID found");
             }
             const productId = order.data.productId;
+            console.log({ productId });
             let creditsToAdd = 0;
-
             switch (productId) {
-              case "bc06566e-b6fc-4461-bbe9-239fad4a50a6":
+              case "a8fd5580-e9b7-486a-8a56-48f16388ef68":
                 creditsToAdd = 50;
                 break;
-              case "fb7f661c-88fd-4068-8e61-8e104d7ba2b0":
+              case "ae583fc5-7c7a-4215-90fe-a16326684357":
                 creditsToAdd = 200;
                 break;
-              case "be55407f-d0eb-470c-b50f-8fe86aa4f855":
+              case "eae9648f-1cb7-420c-96aa-83fa7c712274":
                 creditsToAdd = 400;
-                break;
-
-              default:
                 break;
             }
             await prisma.user.update({
@@ -94,6 +89,6 @@ export const auth = betterAuth({
           },
         }),
       ],
-    }), */
+    }),
   ],
 });
