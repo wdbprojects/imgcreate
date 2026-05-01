@@ -20,9 +20,9 @@ const HeaderDashboard = async () => {
           <BreadcrumbComp />
         </div>
         {/* // AUTH & BUTTONS */}
-        <div className="flex shrink-0 items-center gap-4 p-1">
+        <div className="flex shrink-0 items-center gap-4">
           {session && (
-            <div className="hidden sm:block">
+            <div className="items-centersm:flex hidden">
               <span className="text-muted-foreground text-xs">Signed as: </span>
               <Badge variant="default">{session?.user?.name}</Badge>
             </div>

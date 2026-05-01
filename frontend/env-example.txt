@@ -1,16 +1,24 @@
 # PUBLIC URL (CLIENT)
 NEXT_PUBLIC_API_URL=http://localhost:3000
+NODE_ENV="development"
 
 # DATABASE URL
-DATABASE_URL=postgresql://ronyortiz:@localhost:5432/prismatest?schema=public
+DATABASE_URL=postgresql://ronyortiz:@localhost:5432/imgcreate?schema=public
+# DATABASE_URL=postgresql://neondb_owner:npg_jSuta12LRNKI@ep-quiet-poetry-amifmo02-pooler.c-5.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
 
 # BETTER AUTH
 BETTER_AUTH_SECRET=QLepzFBEF461I5zpUKEBCA7o07hfhPX6
 BETTER_AUTH_URL=http://localhost:3000
 
 # POLAR
-POLAR_ACCESS_TOKEN=polar_oat_GLV8fods3S5pHWwSJE8QnTYmPu6jx9fkXJ99I3khOB4
-POLAR_WEBHOOK_SECRET=polar_whs_Kz1eCoCXdaVKDI4pEDHX8NxS0BhHlQyhWEJgL3aYr0F
+POLAR_ACCESS_TOKEN=polar_oat_yCp8rnsrF3usI76t4lAWOgBEGACg9NNVeofHa49XGTs
+POLAR_WEBHOOK_SECRET=polar_whs_qqSrsRtGJnEIx5ulMjfg8BtruHqSo0Qo9wrFL1KA06f
+
+# AWS
+AWS_ACCESS_KEY_ID=""
+AWS_SECRET_ACCESS_KEY=""
+AWS_REGION="us-east-1"
+AWS_S3_BUCKET_NAME=image-create-rwd
 
 # IMAGE KIT
 IMAGEKIT_PRIVATE_KEY=private_kjDfjMBv0ih2gNAsaT2n2EUc7wo=
